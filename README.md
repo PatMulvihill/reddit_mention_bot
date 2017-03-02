@@ -1,4 +1,4 @@
-##The functionality of this bot comes out-of-the-box with reddit now (without reddit gold), so it has been made obselete.
+#The functionality of this bot comes out-of-the-box with reddit now (without reddit gold), so it has been made obselete.
 
 This bot will parse through comments to check if you the `searched_username` you define in `config.py` has been mentioned using Reddit.com's '/u/' + config.searched_username format.
 In order to use this bot, you must clone it, install pip and install PRAW using `pip install praw`.
