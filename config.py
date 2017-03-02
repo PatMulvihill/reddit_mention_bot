@@ -1,7 +1,10 @@
 username = "" #username for reddit bot
 password = "" #password for reddit bot
 client_id = "" #client id assigned by reddit dev portal
-client_secret = "" #secret key assigned by reddit dev portal
+client_secret = "testing" #secret key assigned by reddit dev portal
 
 searched_username = "" # this is the username you are searching for
-				# and the username you will private message
+                        # and the username you will private message
+lim = 100 # this is the amount of comments you will go through in each
+            # iteration of the loop
+sleep_time = 10 # seconds you sleep between each iteration    

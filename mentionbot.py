@@ -16,10 +16,9 @@ def bot_login():
     return r
 
 def run_bot(r, comments_replied_to):
-    lim = 100
-    print("Obtaining %d most recent comments..." % (lim))
+    print("Obtaining %d most recent comments..." % (config.lim))
 
-    for comment in r.subreddit('test').comments(limit=lim):
+    for comment in r.subreddit('test').comments(limit=config.lim):
         searched_user = "/u/" + config.searched_username
 
         if searched_user in comment.body and comment.id not in comments_replied_to: #and comment.author != r.user.me():
@@ -36,9 +35,8 @@ def run_bot(r, comments_replied_to):
             with open("comments_replied_to.txt", "a") as f:
                 f.write(comment.id + "\n")
 
-    print("Sleeping for 10 seconds...")
-    # sleep for 10 seconds
-    time.sleep(10)
+    print("Sleeping for %d seconds..." % (config.sleep_time))
+    time.sleep(config.sleep_time)
 
 def get_saved_comments():
     if not os.path.isfile("comments_replied_to.txt"):
