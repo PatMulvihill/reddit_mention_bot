@@ -18,10 +18,11 @@ def bot_login():
 def run_bot(r, comments_replied_to):
     print("Obtaining %d most recent comments..." % (config.lim))
 
-    for comment in r.subreddit('test').comments(limit=config.lim):
+    subreddits = config.subs
+    for comment in r.subreddit(subreddits).comments(limit=config.lim):
         searched_user = "/u/" + config.searched_username
 
-        if searched_user in comment.body and comment.id not in comments_replied_to: #and comment.author != r.user.me():
+        if searched_user.lower() in str(comment.body).lower() and comment.id not in comments_replied_to and comment.author != r.user.me():
             print("String with " + searched_user + " found in comment " + comment.id + ".")
             commenter_name = comment.author
             sub_name = comment.submission
@@ -43,9 +44,7 @@ def get_saved_comments():
         comments_replied_to = []
     else:
         with open("comments_replied_to.txt", "r") as f:
-            comments_replied_to = f.read()
-            comments_replied_to = comments_replied_to.split("\n")
-            comments_replied_to = filter(None, comments_replied_to)
+            comments_replied_to = f.read().split("\n")
 
     return comments_replied_to
 

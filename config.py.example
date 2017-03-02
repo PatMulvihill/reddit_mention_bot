@@ -7,4 +7,5 @@ searched_username = "" # this is the username you are searching for
                         # and the username you will private message
 lim = 100 # this is the amount of comments you will go through in each
             # iteration of the loop
-sleep_time = 10 # seconds you sleep between each iteration    
+sleep_time = 10 # seconds you sleep between each iteration
+subs = "rangers+hockey" # subreddits you would like to run your bot separated by '+' 
